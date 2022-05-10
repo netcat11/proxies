@@ -6,7 +6,5 @@ def getrandomip():
     reg=r'(\d+\.\d+\.\d+\.\d+)\s*:(\d+)'
     ip_list=re.findall(reg,content)
     random_ip=random.choice(ip_list)
-    proxies={'http':random_ip[0]+':'+random_ip[1],'https':random_ip[0]+':'+random_ip[1]}
+    proxies={'http':random_ip[0]+':'+random_ip[1]}
     return proxies
-a=getrandomip()
-print(a)
