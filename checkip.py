@@ -18,9 +18,9 @@ ok_iplist=''
 for ip in ip_list:
     try:
         
-        proxies={'http':ip[0]+':'+ip[1],'https':ip[0]+':'+ip[1],}
+        proxies={'http':ip[0]+':'+ip[1]}
         print(proxies)
-        r=requests.get(url,headers=headers,proxies=proxies,timeout=2)
+        r=requests.get(url,headers=headers,proxies=proxies,timeout=1)
         print(r.status_code)
         if r.status_code==200:
 
