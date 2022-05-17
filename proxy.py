@@ -12,22 +12,27 @@ def getip(url,reg):
  global ipl
  try:
      
-  r=requests.get(url,headers=headers,proxies=cip.getp(),timeout=2)
- except:
-     print('ip封禁，获取页面失败！.....')
-     
- print(r.status_code)
+  r=requests.get(url,headers=headers,proxies=cip.getrandomip(),timeout=2)
+  if r.status_code==200:
+
+   print(r.status_code)
+   ip_list=re.findall(reg,r.text)
+   ip_list=set(ip_list)
+   print(ip_list)
  
- ip_list=re.findall(reg,r.text)
- ip_list=set(ip_list)
- print(ip_list)
- 
- for ip in ip_list:
+   for ip in ip_list:
      
      if ip[0] in ipl:
          continue
      else:   
       ipl=ipl+ip[0]+':'+ip[1]+'\n'
+  else:
+      print(r.status_code)
+      getip(url,reg)
+ except:
+     print('ip封禁，获取页面失败！.....')
+     getip(url,reg)
+   
      
 def kdl(p):
  for i in range(1,p):
@@ -37,7 +42,7 @@ def kdl(p):
     getip(url,regkdl)
     time.sleep(2)
 
- f=open('ipl.txt','a')
+ f=open('ip.txt','a')
  f.write(ipl)
  f.close()
 
