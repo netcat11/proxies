@@ -1,39 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport"   content="width=device-width,initial-scale=1.0">
-        <title>可口可乐</title>
-        <style>
-            *{
-                margin:0;
-                padding:0;  
-            }
-            body{
-                height: 100vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .kele{
-                background-image: url('./images/kl.jpg');
-                background-repeat: repeat-x;
-                background-position: 0 10px;
-                animation: bg 5s linear infinite;
-            }
-            @keyframes bg {
-                from{
-                    background-position: 0 10px;
-                }
-                to{
-                    background-position: -537px 10px;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <div class="kele">
-            <img src='./images/pz.png'>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        .flex{
+            display: flex;
+        }
+        .flex1{
+            flex:1;
+        }
+        .column{
+            flex-direction: column;
+        }
+        body{
+            margin:0;
+            height: 100vh;
+            background-color: rgb(226, 224, 224);
+        }
+        *{
+            /* border: 1px solid black ; */
+        }
+        .baiSe{
+            background-color: rgb(255, 255, 255);
+        }
+        .shadow{
+            box-shadow:rgb(0 0 0 / 20%) 0px 2px 1px -1px, rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+        }
+        .list{
+            height: 160px;
+        }
+        .mgr8{
+            margin-right:8px;
+        }
+        .mg8{
+            margin:8px;
+        }
+        .mgt{
+            margin-top: 8px;
+        }
+        .datacontent{
+            height:100px;
+        }
+        .navigation{
+            padding: 10px 20px;
+            border-bottom: 1px solid rgb(201, 201, 201);
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body class="flex">
+    <!--side col-->
+    <div class="flex baiSe shadow column" style="width:200px;">
+        <div class="flex" style="border-bottom: 1px solid #999; height: 60px; "></div>
+        <div cla class="baiSe">
+            <div class="navigation">导航</div>
+            <div class="navigation">导航</div>
+            <div class="navigation">导航</div>
         </div>
-    </body>
+    </div>
+
+    <!-- main content -->
+    <div class="flex flex1 column">
+        <!-- main head -->
+        <div class="baiSe shadow" style="height:60px;z-index: 2;"></div>
+        <!--content-->
+        <div class="flex flex1" style="overflow:auto" >
+            <!--content-left-->
+            <div class="flex column mg8" style="flex:3">
+                <!--data-->
+                <div class="flex">
+                    <!--four block-->
+                    <div class="baiSe shadow flex1 mgr8 datacontent"></div>
+                    <div class="baiSe shadow flex1 mgr8 datacontent"></div>
+                    <div class="baiSe shadow flex1 mgr8 datacontent"></div>
+                    <div class="baiSe shadow flex1  datacontent"></div>
+                </div>
+                <!--datalist-->
+                <div class="flex column">
+                    <div class="list baiSe mgt"></div>
+                    <div class="list baiSe mgt"></div>
+                    <div class="list baiSe mgt"></div>
+                    <div class="list baiSe mgt"></div>
+                    <div class="list baiSe mgt"></div>
+                    <div class="list baiSe mgt"></div>
+                </div>
+
+
+
+            </div>
+            <!--content-right-->
+            <div class="flex column" style="flex:1;">
+                <div class="baiSe shadow mgr mgt" style="height:150px"></div>
+                <div class="baiSe shadow mgr mgt" style="height:300px"></div>
+            </div>
+        </div>
+    </div>
+    
+</body>
 </html>
